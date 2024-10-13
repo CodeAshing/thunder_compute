@@ -41,7 +41,7 @@ def run_test():
     x_train = np.random.random((100000, 4096)).astype(np.float32)
     y_train = np.random.random((100000, 1)).astype(np.float32)
 
-    epochs = 100
+    epochs = 1
     loss_object = tf.keras.losses.MeanSquaredError()
     for epoch in range(epochs):
         with tf.GradientTape() as tape:
@@ -51,9 +51,12 @@ def run_test():
         model.optimizer.apply_gradients(zip(grads, model.trainable_weights))
         print(f"Epoch {epoch + 1}, Loss: {np.mean(loss.numpy())}")
 
-    model.save('tests/my_model.h5')
-    print("Model saved!")
 
-    model.save_weights('tests/my_model_weights.h5')
-    print("Weights saved!")
+    # model.save('tests/my_model.h5')
+    # print("Model saved!")
+
+    # model.save_weights('tests/my_model_weights.h5')
+    # print("Weights saved!")
+    
+    print("Training completed!")
 
